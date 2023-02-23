@@ -1,0 +1,3 @@
+use hashset instead of hashmap to store characters. 
+
+set.find[str[r]] != set.end()

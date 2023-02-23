@@ -1,0 +1,10 @@
+suppose range is L to R
+
+create sieve  and generate all prime numbers <= sqrt(R)
+
+create dummy array . size R-L+ 1
+
+Find all prime numbers in array ( Iterate through prime vector and find first multiple. ( 2 loops))
+
+Print all prime numbers stored in dummy array
+ 

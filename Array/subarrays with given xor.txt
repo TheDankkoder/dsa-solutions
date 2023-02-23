@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Solution{
+    public:
+    int solve(vector<int> &A, int B) {
+    unordered_map<int,int>visited;   //hashmap to store count of Y
+    int cpx = 0;    //current xor value
+    long long c=0;      //count
+    for(int i=0;i<A.size();i++){
+        cpx^=A[i];
+        if(cpx==B) c++;
+        int h = cpx^B;               //finding Y
+        if(visited.find(h)!=visited.end()){    //increment Y count if not present
+            c=c+visited[h];
+        }
+        visited[cpx]++;
+    }
+    return c;
+}
+};

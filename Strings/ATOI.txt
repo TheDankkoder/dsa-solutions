@@ -1,0 +1,47 @@
+class Solution {
+public:
+    int myAtoi(string s) {
+    if (s.empty()) return 0;
+
+    int cursor = 0;
+    while (cursor < s.size() && s[cursor] == ' ') cursor++;
+
+    bool negative = false;
+    if (s[cursor] == '-') {
+        negative = true;
+        cursor++;
+    }
+    else if(s[cursor] == '+')
+    {
+        cursor++;
+    }
+        
+    
+        long long number=0;
+    while(s[cursor] >= '0' && s[cursor] <='9' && s[cursor] !=' ')
+    {
+        int num=s[cursor]-'0';
+        num= negative? -num : num;
+        if(number*10 + num < INT_MIN)
+        {
+            number= INT_MIN;
+            break;
+        }
+        else if(number*10 + num > INT_MAX)
+        {
+            number= INT_MAX;
+            break;
+        }
+        else
+        {
+            number=number*10 + num;
+        }
+        cursor++;
+    }
+        
+        return number;
+    
+
+
+}
+};

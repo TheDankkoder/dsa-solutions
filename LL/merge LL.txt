@@ -1,0 +1,48 @@
+ListNode* merge(ListNode* A, ListNode* B){
+
+    ListNode* aNode = A;
+    ListNode* bNode = B;
+    ListNode* merged = NULL;
+    ListNode* tail = NULL;
+    
+    while((aNode!=NULL) && (bNode!=NULL)){
+        ListNode* insertedNode = NULL;
+        
+        if(aNode->val<bNode->val){
+            insertedNode = aNode;
+            aNode = aNode->next;
+        }
+        else {
+            insertedNode = bNode;
+            bNode = bNode->next;
+        }
+        
+        if(merged){
+            tail->next = insertedNode;
+            tail = insertedNode;
+        }
+        else {
+            merged = tail = insertedNode;
+        }
+    }
+    
+    //copy the remainder
+    while(aNode!=NULL){
+        tail->next = aNode;
+        tail = aNode;
+        aNode = aNode->next;
+    }
+    
+    while(bNode!=NULL){
+        tail->next = bNode;
+        tail = bNode;
+        bNode = bNode->next;
+    }
+    
+    //Update the last node appropriately
+    if(tail){
+        tail->next = NULL;
+    }
+    
+    return merged;
+}

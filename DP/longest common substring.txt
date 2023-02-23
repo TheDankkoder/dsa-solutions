@@ -1,0 +1,55 @@
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        
+ 
+        string s1=s;
+        string s2=s;
+        reverse(s2.begin(),s2.end());
+        int n = s1.size();
+        int m = s2.size();   
+    
+    vector<vector<int>> dp(n+1,vector<int>(m+1,0));
+
+    int ans = 0;
+    
+    for(int i=1;i<=n;i++){
+        for(int j=1;j<=m;j++){
+            if(s1[i-1]==s2[j-1]){
+                int val = 1 + dp[i-1][j-1];
+                dp[i][j] = val;
+                ans = max(ans,val);
+            }
+            else
+                dp[i][j] = 0;
+        }
+    }
+    
+    return ans;
+    
+    }
+};
+
+
+int solve(string &a , string &b , int i , int j, bool conti)
+{
+
+        if(i >= a.size() || j >= b.size()) return 0 ;
+        if(dp[i][j][conti] != -1) return dp[i][j][conti] ;
+        
+        if(conti)
+        {
+            if(a[i] == b[j]) return dp[i][j][conti] = 1 + solve(a,b,i + 1,j + 1,true) ;
+            else return 0 ;
+        }
+
+        else
+        {
+
+            int option = 0 ;
+            if(a[i] == b[j]) option = max(option,1 + solve(a,b,i + 1,j + 1,true)) ;
+            option = max({option,solve(a,b,i + 1,j,conti),solve(a,b,i,j + 1,conti)}) ;
+            return dp[i][j][conti] = option ;
+        }
+
+}

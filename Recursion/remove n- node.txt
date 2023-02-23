@@ -1,0 +1,30 @@
+jayswaldisha5's avatar
+jayswaldisha5
+1
+
+an hour ago
+
+1 VIEWS
+
+//using recursion
+
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+        
+        if(head==NULL)return NULL;
+        head->next=removeElements(head->next,val);
+        
+        //using ternary operator
+        return head->val==val?head->next:head;
+        
+//         if(head->val==val){
+//          ListNode*ans=head->next;
+//          delete head;
+//          return ans;
+//         }
+        
+//         else
+//             return head;
+    }
+};

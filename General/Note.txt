@@ -1,0 +1,18 @@
+	__builtin_popcount(n)
+
+for recursion , make sure the result is carried upwards 
+
+Final 450 playlist : Stack n queue, heap , greedy , array , linked list, string, DP, Graph , bit manipulation
+
+for generating list, construct a boolean recursion
+
+for greedy , consider a minm variable t, make sure all elements satisfy conditions for constant t. This determines the ordering.
+
+for minimum steps in graph problem , use bfs instead of dfs
+
+for binary search , choose n and consider if problem statement is satisfied for that n
+
+
+for question A :  always some trickery in solved cases to throw you off the approach , if seems difficult, there is always a particular trick to solve it .
+else should have been B or C
+
